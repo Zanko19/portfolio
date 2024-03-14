@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import logo from "../assets/gdlogo.png"
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   // State to manage the navbar's visibility
@@ -13,21 +15,24 @@ const Navbar = () => {
   // Array containing navigation items
   const navItems = [
     { id: 1, text: 'Projects' },
-    { id: 2, text: 'About me' },
+    { id: 2, text: 'Bio' },
     { id: 3, text: 'Contact' },
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-24 max-w mx-auto px-4 text-white '>
+    <div className='bg-black flex justify-between items-center h-24 max-w mx-auto px-4 text-white'>
       {/* Logo */}
-      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Guillaume Dedeurwaerder</h1>
+      <div className='w-full'>
+    <img src={logo} alt='Logo' className='animate-pulse w-auto h-10' />
+</div>
+
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
         {navItems.map(item => (
           <li
             key={item.id}
-            className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
+            className='p-2 h-1/2 text-center hover:bg-[#59A52C] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'
           >
             {item.text}
           </li>
@@ -48,13 +53,13 @@ const Navbar = () => {
         }
       >
         {/* Mobile Logo */}
-        <h1 className='w-full text-3xl font-bold text-[#00df9a] m-4'>Guillaume Dedeurwaerder</h1>
+        <h1 className='w-full text-3xl font-bold text-[#59A52C] m-4'>Guillaume Dedeurwaerder</h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
           <li
             key={item.id}
-            className='p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600'
+            className='p-4 border-b rounded-xl hover:bg-[#59A52C] duration-300 hover:text-black cursor-pointer border-gray-600'
           >
             {item.text}
           </li>
